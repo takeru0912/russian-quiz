@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ロシア語 単語クイズ</title>
   <style>
     body {
@@ -72,15 +73,18 @@
       font-size: 0.95rem;
     }
     #next-btn {
-      padding: 8px 16px;
+      padding: 16px 64px;              /* 縦2倍・横4倍 */
       border-radius: 999px;
       border: none;
       cursor: pointer;
       background: #2563eb;
       color: #ffffff;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      display: block;                  /* ブロック要素にして */
+      margin: 8px auto 0;              /* 左右 auto で中央寄せ */
     }
+
     #next-btn:disabled {
       opacity: 0.5;
       cursor: default;
