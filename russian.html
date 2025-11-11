@@ -5,44 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ロシア語 単語クイズ</title>
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
       background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;        /* 画面ちょうど */
+      overflow: hidden;     /* 画面全体のスクロールを止める */
     }
+
     .card {
       background: #ffffff;
-      padding: 24px 32px;
+      padding: 20px 20px;   /* ちょっとだけコンパクトに */
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       max-width: 480px;
       width: 100%;
+      box-sizing: border-box; /* width に padding を含める → 横スクロール防止 */
     }
+
     h1 {
       font-size: 1.4rem;
       margin: 0 0 12px;
     }
+
     .question {
       font-size: 2rem;
       font-weight: 600;
       margin: 12px 0 16px;
     }
+
     .meta {
       font-size: 0.9rem;
       color: #666;
       margin-bottom: 4px;
     }
+
     .choices {
       list-style: none;
       padding: 0;
       margin: 0 0 12px;
     }
+
     .choice-btn {
       width: 100%;
       text-align: left;
@@ -55,25 +67,31 @@
       font-size: 1rem;
       transition: background 0.15s, transform 0.05s;
     }
+
     .choice-btn:hover {
       background: #f0f0f0;
       transform: translateY(-1px);
     }
+
     .choice-btn.correct {
       background: #d4f8d4;
       border-color: #3ba55d;
     }
+
     .choice-btn.wrong {
       background: #ffd6d6;
       border-color: #e55353;
     }
+
     #feedback {
       min-height: 1.2em;
       margin-bottom: 8px;
       font-size: 0.95rem;
     }
+
+    /* ▶ ボタン：縦2倍・横4倍＆中央寄せ */
     #next-btn {
-      padding: 16px 64px;              /* 縦2倍・横4倍 */
+      padding: 16px 64px;   /* もともと 8px 16px → 2倍＆4倍 */
       border-radius: 999px;
       border: none;
       cursor: pointer;
@@ -81,14 +99,25 @@
       color: #ffffff;
       font-weight: 600;
       font-size: 1rem;
-      display: block;                  /* ブロック要素にして */
-      margin: 8px auto 0;              /* 左右 auto で中央寄せ */
+      display: block;
+      margin: 8px auto 0;   /* 左右中央揃え */
     }
 
     #next-btn:disabled {
       opacity: 0.5;
       cursor: default;
     }
+
+    /* スマホ用に少し調整（高さがきつい端末向け） */
+    @media (max-width: 480px) {
+      .card {
+        padding: 16px 12px;
+      }
+      .question {
+        font-size: 1.6rem;
+      }
+    }
+
   </style>
 </head>
 <body>
